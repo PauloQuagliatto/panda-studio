@@ -1,5 +1,8 @@
 import { useState, useRef } from 'react'
 import JoditEditor from 'jodit-react'
+import { doc, setDoc } from 'firebase/firestore'
+
+import { db } from '../lib/firebase'
 
 const placeholder: string = 'Teste'
 
@@ -15,10 +18,18 @@ export function JoditEditorTest() {
   function updateContent(newContent: any) {
     setContent(newContent)
   }
+  async function saveContent() {
+    const title = 'Primeiro Coiso'
+    const subttitle = 'Sub Coiso'
 
-  function saveContent() {
+
+
     try {
-      console.log(content)
+      await setDoc(doc(db, "fukushu", "teste"), {
+        title,
+        subttitle,
+        body: content
+      })
     } catch (e) {
       console.log(e)
     }
