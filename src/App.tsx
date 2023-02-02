@@ -1,43 +1,24 @@
-import { useState } from 'react'
-import { doc, getDoc } from 'firebase/firestore'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { JoditEditorTest } from './components/JoditEditor'
-import { db } from './lib/firebase'
+import { Header } from './components/Header'
 
-interface IText {
-  title: string
-  subtitle: string
-  body: any
-}
+import { QuillReaderPage } from './pages/QuillReaderPage'
+import { QuillEditorPage } from './pages/QuillEditorPage'
+import { TinyReaderPage } from './pages/TinyReaderPage'
+import { TinyEditorPage } from './pages/TinyEditorPage'
+
 
 export function App() {
-  const [seeText, setSeeText] = useState(false)
-  const [text, setText] = useState<IText | null>(null)
-
-  async function toggleSeeText() {
-    const res = await getDoc(doc(db, "fukushu", "teste"))
-    console.log(res.data())
-    setText(res.data())
-
-    setSeeText((currState) => !currState)
-  }
   return (
-    <div>
-      {seeText ?
-        <div>
-          {text && <div>
-            {text.title}
-            {text.subttitle}
-            <div
-              dangerouslySetInnerHTML={{ __html: text.body }} />
-          </div>
-          }
-        </div>
-
-        : <JoditEditorTest />
-      }
-
-      <button onClick={toggleSeeText}>{seeText ? 'Editor' : 'Ver texto'}</button>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<div />} />
+        <Route path='quill' element={<QuillEditorPage />} />
+        <Route path='quill/reader' element={<QuillReaderPage />} />
+        <Route path='tiny' element={<TinyEditorPage />} />
+        <Route path='tiny/reader' element={<TinyReaderPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
