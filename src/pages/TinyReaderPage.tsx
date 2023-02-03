@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { doc, DocumentData, getDoc } from 'firebase/firestore'
 
 import { db } from '../lib/firebase'
@@ -11,10 +11,15 @@ export function TinyReaderPage() {
 
     setPage(res.data())
   }
+
+  useEffect(() => {
+    getPageData()
+  }, [])
+
   return (
     <div>
       Tiny  Reader Page
-      {page}
+      {page ? <div>page</div> : null}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { doc, DocumentData, getDoc } from 'firebase/firestore'
 
 import { db } from '../lib/firebase'
@@ -10,10 +10,15 @@ export function QuillReaderPage() {
 
     setPage(res.data())
   }
+
+  useEffect(() => {
+    getPageData()
+  }, [])
+
   return (
     <div>
       Quill Reader Page
-      {page}
+      {page ? <div>page</div> : null}
     </div>
   )
 }
