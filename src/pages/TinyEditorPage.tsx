@@ -20,7 +20,7 @@ import 'tinymce/plugins/help'
 
 export function TinyEditorPage() {
   const [content, setContent] = useState('')
-  const editorRef = useRef(null);
+  const editorRef = useRef<any>(null)
 
   const log = () => {
     if (editorRef.current) {
