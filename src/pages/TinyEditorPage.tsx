@@ -1,14 +1,18 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
+import { doc, setDoc } from 'firebase/firestore'
+
+import { db } from '../lib/firebase'
 
 export function TinyEditorPage() {
-  const [content, setContent] = useState('')
   const editorRef = useRef<any>(null)
 
-  const log = () => {
-    if (editorRef.current) {
-      setContent(editorRef.current.getContent());
-    }
+  async function salvar() {
+    await setDoc(doc(db, "fukushu", "teste-tiny"), {
+      title: "TESTE DO TINY",
+      subtitle: "microteste",
+      body: editorRef.current.getContent()
+    })
   }
   return (
     <>
@@ -16,7 +20,7 @@ export function TinyEditorPage() {
         onInit={(evt, editor) => editorRef.current = editor}
         initialValue="<p>This is the initial content of the editor.</p>"
         init={{
-          height: 500,
+          height: 780,
           menubar: false,
           plugins: [
             'advlist autolink lists link image charmap print preview anchor',
@@ -30,8 +34,7 @@ export function TinyEditorPage() {
           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
       />
-      <button onClick={log}>Log editor content</button>
-      {content}
+      <button onClick={salvar}>Salvar</button>
     </>
   )
 }

@@ -7,7 +7,7 @@ export function TinyReaderPage() {
   const [page, setPage] = useState<DocumentData | undefined>(undefined)
 
   async function getPageData() {
-    const res = await getDoc(doc(db, "fukushu", "teste-quill"))
+    const res = await getDoc(doc(db, "fukushu", "teste-tiny"))
 
     setPage(res.data())
   }
@@ -18,8 +18,11 @@ export function TinyReaderPage() {
 
   return (
     <div>
-      Tiny  Reader Page
-      {page ? <div>page</div> : null}
+      {page ? <>
+        <h1>{page.title}</h1>
+        <h2>{page.subtitle}</h2>
+        <div dangerouslySetInnerHTML={{ __html: page.body }} />
+      </> : null}
     </div>
   )
 }

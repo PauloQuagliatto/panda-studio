@@ -17,8 +17,11 @@ export function QuillReaderPage() {
 
   return (
     <div>
-      Quill Reader Page
-      {page ? <div>page</div> : null}
+      {page ? <>
+        <h1>{page.title}</h1>
+        <h2>{page.subtitle}</h2>
+        <div dangerouslySetInnerHTML={{ __html: page.body }} />
+      </> : null}
     </div>
   )
 }
