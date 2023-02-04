@@ -1,22 +1,5 @@
 import { useRef, useState } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
-import 'tinymce/plugins/advlist'
-import 'tinymce/plugins/autolink'
-import 'tinymce/plugins/link'
-import 'tinymce/plugins/image'
-import 'tinymce/plugins/lists'
-import 'tinymce/plugins/charmap'
-import 'tinymce/plugins/anchor'
-import 'tinymce/plugins/searchreplace'
-import 'tinymce/plugins/wordcount'
-import 'tinymce/plugins/code'
-import 'tinymce/plugins/fullscreen'
-import 'tinymce/plugins/insertdatetime'
-import 'tinymce/plugins/media'
-import 'tinymce/plugins/nonbreaking'
-import 'tinymce/plugins/table'
-import 'tinymce/plugins/template'
-import 'tinymce/plugins/help'
 
 export function TinyEditorPage() {
   const [content, setContent] = useState('')
