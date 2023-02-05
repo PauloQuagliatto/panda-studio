@@ -7,8 +7,6 @@ export function Header() {
     <Container>
       <Link to='/quill'>Quill Editor</Link>
       <Link to='/quill/reader'>Quill Reader</Link>
-      <Link to='/tiny'>Tiny Editor</Link>
-      <Link to='/tiny/reader'>Tiny Reader</Link>
     </Container>
   )
 }
