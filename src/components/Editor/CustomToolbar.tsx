@@ -2,7 +2,10 @@ import { Quill } from 'react-quill'
 import { ChatTeardrop } from 'phosphor-react'
 
 function addToolTip() {
-  console.log(this.quill.getSelection())
+  openModal()
+  const cursorPosition = this.quill.getSelection().index;
+  this.quill.insertHtml(cursorPosition,);
+  this.quill.setSelection(cursorPosition + 1);
 }
 
 // Add sizes to whitelist and register them
