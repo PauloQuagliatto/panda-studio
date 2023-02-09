@@ -9,7 +9,7 @@ import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 
-const theme = { }
+const theme = {}
 
 // When the editor changes, you can get notified via the
 // LexicalOnChangePlugin!
@@ -45,7 +45,7 @@ function onError(error) {
   console.error(error);
 }
 
-function Editor() {
+export function Editor() {
   const initialConfig = {
     namespace: 'MyEditor',
     theme,
