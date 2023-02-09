@@ -1,12 +1,12 @@
-  import { useRef, useState } from 'react'
-  import ReactQuill from 'react-quill'
-  import { CustomToolbar, modules, formats } from './CustomToolbar'
-  import 'react-quill/dist/quill.snow.css'
-  import './styles.css'
+import { useEffect, useRef, useState } from 'react'
+import { CustomToolbar, modules, formats } from './CustomToolbar'
+import 'react-quill/dist/quill.snow.css'
+import './styles.css'
+import { EditorContainer } from './styles'
 
-  export function Editor() {
-    const editorRef = useRef(null)
-    const [value, setValue] = useState('');
+export function Editor() {
+  const editorRef = useRef(null)
+  const [value, setValue] = useState('');
 
   function handleChange(v: any) {
     setValue(v);
@@ -23,11 +23,15 @@
     const quill = editorRef.current.getEditor()
     const selection = quill.getSelection()
   }
+
+  useEffect(() => {
+    console.log(value)
+  }, [value])
   return (
     <>
       <div className="text-editor">
         <CustomToolbar />
-        <ReactQuill
+        <EditorContainer
           ref={editorRef}
           theme="snow"
           value={value}

@@ -1,11 +1,19 @@
 import { Quill } from 'react-quill'
 import { ChatTeardrop } from 'phosphor-react'
+import { ToolbarContainer } from './styles';
 
 function addToolTip() {
-  openModal()
-  const cursorPosition = this.quill.getSelection().index;
-  this.quill.insertHtml(cursorPosition,);
-  this.quill.setSelection(cursorPosition + 1);
+  const result = window.prompt("Digite a nota para o leitor");
+  const { index, length } = this.quill.getSelection();
+  const innerHtml = this.quill.root.innerHTML
+  const text = this.quill.getText()
+  const selectedWord = text.substring(index, index + length).trim()
+  const [firstHalf, secondHalf] = innerHtml.split(selectedWord)
+  const templateTooltip = `<span style="position: relative; background-color: #EEF68C;">${selectedWord}<span class="tooltip-tip" style="position: absolute;top: 20;left: 25%;">${result}</span></span>`
+  this.quill.root.innerHTML = `${firstHalf}${templateTooltip}${secondHalf}`
+  const wordEnd = index + length
+  this.quill.setSelection(templateTooltip.length + wordEnd + 1);
+  console.log(this.quill.root.innerHTML)
 }
 
 // Add sizes to whitelist and register them
@@ -66,7 +74,7 @@ export const formats = [
 
 export function CustomToolbar() {
   return (
-    <div id="toolbar">
+    <ToolbarContainer id="toolbar">
       <span className="ql-formats">
         <button className="ql-bold" />
         <button className="ql-italic" />
@@ -98,7 +106,7 @@ export function CustomToolbar() {
           <ChatTeardrop size={24} />
         </button>
       </span>
-    </div>
+    </ToolbarContainer>
   )
 }
 
