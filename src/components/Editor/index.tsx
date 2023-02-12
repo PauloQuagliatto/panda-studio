@@ -9,7 +9,6 @@ export function Editor() {
   const [value, setValue] = useState('');
 
   function handleChange(v: any) {
-    console.log(v)
     setValue(v);
   }
 

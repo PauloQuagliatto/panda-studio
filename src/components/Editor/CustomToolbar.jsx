@@ -3,17 +3,17 @@ import { ChatTeardrop } from 'phosphor-react'
 import { ToolbarContainer } from './styles';
 
 function addToolTip() {
+  const quill = this.quill
   const result = window.prompt("Digite a nota para o leitor");
-  const { index, length } = this.quill.getSelection();
-  const innerHtml = this.quill.root.innerHTML
-  const text = this.quill.getText()
+  const { index, length } = quill.getSelection();
+  const innerHtml = quill.root.innerHTML
+  const text = quill.getText()
   const selectedWord = text.substring(index, index + length).trim()
   const [firstHalf, secondHalf] = innerHtml.split(selectedWord)
-  const templateTooltip = `<span title="${result}" style="background-color: #F1F1F1;">${selectedWord}</span>`
-  this.quill.root.innerHTML = `${firstHalf}${templateTooltip} ${secondHalf}`
+  const templateTooltip = `<span title="${result}" style="background-color: #EEF68C;">${selectedWord}</span>`
+  quill.root.innerHTML = `${firstHalf}${templateTooltip} ${secondHalf}`
   const wordEnd = index + length
-  this.quill.setSelection(templateTooltip.length + wordEnd + 1);
-  console.log(this.quill.root.innerHTML)
+  quill.setSelection(templateTooltip.length + wordEnd + 1);
 }
 
 // Add sizes to whitelist and register them
