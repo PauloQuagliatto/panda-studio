@@ -34,7 +34,6 @@ Font.whitelist = [
 
 Quill.register(Font, true)
 
-// Modules object for setting up the Quill editor
 export const modules = {
   toolbar: {
     container: "#toolbar",
@@ -49,7 +48,6 @@ export const modules = {
   }
 }
 
-// Formats objects for setting up the Quill editor
 export const formats = [
   "header",
   "font",

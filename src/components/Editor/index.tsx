@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { CustomToolbar, modules, formats } from './CustomToolbar'
 import 'react-quill/dist/quill.snow.css'
 import './styles.css'
