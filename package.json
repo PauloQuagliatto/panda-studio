@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.26.5",
     "@hookform/resolvers": "^2.9.10",
     "@lexical/react": "^0.7.7",
     "@radix-ui/react-popover": "^1.0.3",

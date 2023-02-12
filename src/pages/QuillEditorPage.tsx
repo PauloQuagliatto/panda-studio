@@ -2,7 +2,7 @@ import { doc, setDoc } from 'firebase/firestore'
 
 import { db } from '../lib/firebase'
 
-import { Editor } from '../components/Editor'
+import { Editor } from '../components/EditorJS/Editor'
 import { CustomTooltip } from '../components/CustomTooltip'
 
 export function QuillEditorPage() {
@@ -17,9 +17,6 @@ export function QuillEditorPage() {
   return (
     <>
       <Editor />
-      <button onClick={salvar}>Salvar</button>
-
-      <CustomTooltip primaryText="x" secondaryText='Y' />
     </>
   )
 }
