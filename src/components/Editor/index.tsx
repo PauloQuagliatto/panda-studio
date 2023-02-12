@@ -42,7 +42,9 @@ export function Editor() {
         />
       </div>
       <button onClick={getHighlightedText}>Vai</button>
+      <div dangerouslySetInnerHTML={{ __html: value }} />
     </>
+
   )
 }
 
