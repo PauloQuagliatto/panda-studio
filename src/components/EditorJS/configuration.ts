@@ -1,3 +1,5 @@
+import Header from '@editorjs/editorjs'
+
 export const configuration = {
   holder: 'editorjs',
   placeholder: 'Vamos criar um capítulo',
