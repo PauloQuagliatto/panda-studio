@@ -9,24 +9,10 @@ export function Editor() {
   const [value, setValue] = useState('');
 
   function handleChange(v: any) {
+    console.log(v)
     setValue(v);
   }
 
-  function getHighlightedText() {
-    const quill = editorRef.current.getEditor()
-    const selection = quill.getSelection()
-    const text = quill.getText()
-    console.log(text[selection.index, selection.length])
-  }
-
-  function changeHtml() {
-    const quill = editorRef.current.getEditor()
-    const selection = quill.getSelection()
-  }
-
-  useEffect(() => {
-    console.log(value)
-  }, [value])
   return (
     <>
       <div className="text-editor">
@@ -41,7 +27,6 @@ export function Editor() {
           formats={formats}
         />
       </div>
-      <button onClick={getHighlightedText}>Vai</button>
       <div dangerouslySetInnerHTML={{ __html: value }} />
     </>
 

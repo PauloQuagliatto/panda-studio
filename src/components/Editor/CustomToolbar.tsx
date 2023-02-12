@@ -9,8 +9,8 @@ function addToolTip() {
   const text = this.quill.getText()
   const selectedWord = text.substring(index, index + length).trim()
   const [firstHalf, secondHalf] = innerHtml.split(selectedWord)
-  const templateTooltip = `<span title="${result}">${selectedWord}</span>`
-  this.quill.root.innerHTML = `${firstHalf}${templateTooltip}${secondHalf}`
+  const templateTooltip = `<span title="${result}" style="background-color: #F1F1F1;">${selectedWord}</span>`
+  this.quill.root.innerHTML = `${firstHalf}${templateTooltip} ${secondHalf}`
   const wordEnd = index + length
   this.quill.setSelection(templateTooltip.length + wordEnd + 1);
   console.log(this.quill.root.innerHTML)

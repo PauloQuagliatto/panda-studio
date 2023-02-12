@@ -17,9 +17,6 @@ export function QuillEditorPage() {
   return (
     <>
       <Editor />
-      <button onClick={salvar}>Salvar</button>
-
-      <CustomTooltip primaryText="x" secondaryText='Y' />
     </>
   )
 }
