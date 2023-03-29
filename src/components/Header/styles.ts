@@ -1,9 +1,10 @@
-import { styled } from '@stitches/react'
+import { styled } from '@/styles'
 
-export const Container = styled('div', {
+export const Container = styled('header', {
+  width: '100%',
+  maxWidth: '1216px',
   display: 'flex',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  justifyContent: 'space-around',
-  marginTop: '2rem',
-  marginBottom: '3rem'
+  backgroundColor: '$black-normal'
 })
