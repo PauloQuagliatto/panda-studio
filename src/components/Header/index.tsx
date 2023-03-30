@@ -1,30 +1,32 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { CaretDown } from 'phosphor-react'
 
 import pandaImage from '@/assets/panda-red.png'
 
-import { Container } from './styles'
+import { Container, Nav, NavLink, StyledImage } from './styles'
 
 export function Header() {
+  const route = useRouter()
   return (
     <Container>
-      <nav>
-        <Link href="#">
+      <Nav>
+        <NavLink href="#" className="active">
           Home
-        </Link>
-        <Link href="#">
+        </NavLink>
+        <NavLink href="#">
           Biblioteca
-        </Link>
+          <CaretDown />
+        </NavLink>
 
-        <Image src={pandaImage} alt="panda-logo" />
+        <StyledImage src={pandaImage} alt="panda-logo" />
 
-        <Link href="#">
+        <NavLink href="#">
           Contate-nos
-        </Link>
-        <Link href="#">
+        </NavLink>
+        <NavLink href="#">
           Sobre
-        </Link>
-      </nav>
+        </NavLink>
+      </Nav>
     </Container>
   )
 }
