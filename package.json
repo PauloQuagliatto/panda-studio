@@ -9,16 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@hookform/resolvers": "^2.9.10",
-    "@lexical/react": "^0.7.7",
-    "@radix-ui/react-dialog": "^1.0.2",
-    "@radix-ui/react-popover": "^1.0.3",
-    "@radix-ui/react-tooltip": "^1.0.3",
-=======
     "@radix-ui/react-alert-dialog": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
->>>>>>> dev
     "@stitches/react": "^1.2.8",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
