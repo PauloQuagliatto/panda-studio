@@ -5,6 +5,7 @@ import { styled } from '@/styles'
 
 export const Container = styled('header', {
   width: '100%',
+  marginBottom: '2.5rem',
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: '$black-normal'
