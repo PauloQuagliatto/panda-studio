@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import * as DropDownMenu from '@radix-ui/react-dropdown-menu'
 
 import { styled } from '@/styles'
 
@@ -32,6 +33,16 @@ export const NavLink = styled(Link, {
   color: '$white-dark',
   transition: '.2s ease-out',
   textDecoration: 'none',
+  '&:hover': {
+    color: '$purple-dark',
+    textDecoration: 'underline'
+  },
+  '&.active': {
+    color: '$purple-normal'
+  }
+})
+
+export const Trigger = styled(DropDownMenu.Trigger, {
   '&:hover': {
     color: '$purple-dark',
     textDecoration: 'underline'

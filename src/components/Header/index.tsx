@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CaretDown } from 'phosphor-react'
 
 import pandaImage from '@/assets/panda-red.png'
@@ -14,8 +15,21 @@ export function Header() {
           Home
         </NavLink>
         <NavLink href="#">
-          Biblioteca
-          <CaretDown />
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild>
+              <button>
+                Biblioteca
+                <CaretDown />
+              </button>
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Portal>
+            <DropdownMenu.Content>
+              <DropdownMenu.Item>
+                Novels
+              </DropdownMenu.Item>
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
         </NavLink>
 
         <StyledImage src={pandaImage} alt="panda-logo" />
@@ -27,6 +41,6 @@ export function Header() {
           Sobre
         </NavLink>
       </Nav>
-    </Container>
+    </Container >
   )
 }
