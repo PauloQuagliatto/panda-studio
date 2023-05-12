@@ -17,6 +17,7 @@ export const mainTheme = {
     "gray-100": "#C4C6C8",
     "purple-gradient": "linear-gradient(225deg, #DA88F6 0%, #833D9C 100%, #4D0865 100%)",
     "green-300": "#28D157",
-    "purple-darker": "#1F1F20"
+    "purple-darker": "#1F1F20",
+    "background-overlay": "rgba(10, 9, 9, 0.6)"
   }
 }
