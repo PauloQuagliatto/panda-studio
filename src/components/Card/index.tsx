@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 
+import { Overlay } from './Overlay'
+
 import { CardContainer } from './styles'
 
 type TCard = {
@@ -9,6 +11,7 @@ type TCard = {
 export function Card({ children }: TCard) {
   return (
     <CardContainer>
+      <Overlay />
       {children}
     </CardContainer>
   )

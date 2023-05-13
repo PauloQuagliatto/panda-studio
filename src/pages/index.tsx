@@ -14,7 +14,7 @@ export default function Home() {
         <SearchInput />
       </div>
       <Card>
-        <Link href='novels'>
+        <Link href='novel'>
           <BackgroundImage backgroundUrl={img} altTitle={'goku'} />
           <CardTitle title={'Goku'} />
         </Link>
