@@ -2,5 +2,5 @@ export const ROOT_ROUTES = {
   HOME: '/',
   NOVEL: '/novel',
   CONTACT: '/contact',
-  ABBOUT: '/about'
+  ABOUT: '/about'
 } as const
