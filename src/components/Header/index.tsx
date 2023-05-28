@@ -26,7 +26,6 @@ export function Header() {
   return (
     <Container>
       <Nav>
-        {activeRoute}
         <NavLink href="/" className={activeRoute === ROOT_ROUTES.HOME ? 'active' : ''}>
           Home
         </NavLink>
