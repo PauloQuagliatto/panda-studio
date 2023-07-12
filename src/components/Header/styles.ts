@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ComponentProps } from 'react'
 
 import { styled } from '@/styles'
 
@@ -40,6 +39,24 @@ export const NavLink = styled(Link, {
   '&.active': {
     color: '$purple-normal'
   }
+})
+
+export const NavLinkDiv = styled('div', {
+  display: 'flex',
+  gap: '0.5rem',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  color: '$white-dark',
+  transition: '.2s ease-out',
+  textDecoration: 'none',
+  '&:hover': {
+    color: '$purple-dark',
+    textDecoration: 'underline'
+  },
+  '&.active': {
+    color: '$purple-normal'
+  },
+  cursor: 'pointer'
 })
 
 export const Dropdown = styled('div', {

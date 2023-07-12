@@ -14,6 +14,7 @@ import {
   DropdownTrigger,
   Nav,
   NavLink,
+  NavLinkDiv,
   StyledImage
 } from './styles'
 
@@ -23,13 +24,14 @@ export function Header() {
 
   const [_, activeRoute, __] = route.pathname.split('/')
 
+  console.log(activeRoute)
   return (
     <Container>
       <Nav>
-        <NavLink href="/" className={activeRoute === ROOT_ROUTES.HOME ? 'active' : ''}>
+        <NavLink href='/' className={activeRoute === ROOT_ROUTES.HOME ? 'active' : ''}>
           Home
         </NavLink>
-        <NavLink href="#" className={activeRoute === ROOT_ROUTES.NOVEL ? 'active' : ''}>
+        <NavLinkDiv className={activeRoute === ROOT_ROUTES.NOVEL ? 'active' : ''}>
           <Dropdown
             onMouseEnter={() => setIsVisible(true)}
             onMouseLeave={() => setIsVisible(false)}
@@ -44,7 +46,7 @@ export function Header() {
               </NavLink>
             </DropdownContent>
           </Dropdown>
-        </NavLink>
+        </NavLinkDiv>
 
         <StyledImage src={pandaImage} alt="panda-logo" />
 
