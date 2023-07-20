@@ -1,33 +1,34 @@
+import { useRouter } from 'next/router'
 import { collection, getDocs } from 'firebase/firestore'
+import { format } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+
+import { firestore } from '@/lib/firebase'
 
 import { Card } from '@/components/Card'
 import { CardTitle } from '@/components/Card/CardTitle'
 import { SearchInput } from '@/components/SearchInput'
 import { BackgroundImage } from '@/components/BackgroundImage'
 
-import { firestore } from '@/lib/firebase'
-
 import { Container, NewNovelsList } from '@/styles/pages/home'
-import { format } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
 
 export default function Home(props: any) {
+  const router = useRouter()
   const img = 'https://www.publicitarioscriativos.com/wp-content/uploads/2023/05/goku-bobs-panini.png'
   return (
     <Container>
       <SearchInput />
       <NewNovelsList>
-        {props.novels.map((novel: any) => {
-          return (
-            <Card key={novel.id}>
-              <BackgroundImage
-                backgroundUrl={img}
-                altText='goku'
-              />
-              <CardTitle title={novel.name} />
-            </Card>
-          )
-        })}
+        {props.novels.map((novel: any) => (
+          <Card key={novel.id} onClick={() => router.push(`novel/${novel.name}`)}>
+            <BackgroundImage
+              backgroundUrl={img}
+              altText={novel.name}
+            />
+            <CardTitle title={novel.name} />
+          </Card>
+        )
+        )}
       </NewNovelsList>
     </Container>
   )

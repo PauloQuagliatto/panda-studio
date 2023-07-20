@@ -1,16 +1,16 @@
-import { ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import { Overlay } from './Overlay'
 
 import { CardContainer } from './styles'
 
-type TCard = {
+interface TCard extends ButtonHTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
-export function Card({ children }: TCard) {
+export function Card({ children, ...rest }: TCard) {
   return (
-    <CardContainer>
+    <CardContainer {...rest}>
       <Overlay />
       {children}
     </CardContainer>
