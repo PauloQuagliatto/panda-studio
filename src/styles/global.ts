@@ -16,5 +16,9 @@ export const globalStyles = globalCss({
   'body, input, textarea, button, p, span': {
     fontFamily: 'Poppins',
     fontWeight: 400
+  },
+
+  button: {
+    cursor: 'pointer'
   }
 })

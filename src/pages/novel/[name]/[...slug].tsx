@@ -1,12 +1,21 @@
+import { useState } from 'react'
+import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import {
   doc,
   getDoc
 } from 'firebase/firestore'
+import { Minus, Plus } from 'phosphor-react'
 
 import { firestore } from '@/lib/firebase'
-import { Container } from '@/styles/pages/novelReader'
-import { format } from 'date-fns'
+
+import {
+  NovelReaderContainer,
+  NovelBodyContainer,
+  NovelSettingsContainer,
+  FontButton,
+  FontPreview
+} from '@/styles/pages/novelReader'
 
 import { Novel } from '@/types'
 
@@ -15,10 +24,40 @@ type NovelReaderProps = {
 }
 
 export default function NovelReader({ novel }: NovelReaderProps) {
+  const [fontSize, setFontSize] = useState(16)
+
+  function increaseFontSize() {
+    setFontSize(prevState => prevState + 1)
+  }
+
+  function decreaseFontSize() {
+    setFontSize(prevState => prevState - 1)
+  }
+
   return (
-    <Container>
-      <div dangerouslySetInnerHTML={{ __html: novel.body }} />
-    </Container>
+    <>
+      <NovelSettingsContainer>
+        <FontButton onClick={increaseFontSize}>
+          <Plus />
+        </FontButton>
+        <FontPreview css={{
+          fontSize: `${fontSize}px`
+        }}>A</FontPreview>
+        <FontButton onClick={decreaseFontSize}>
+          <Minus />
+        </FontButton>
+      </NovelSettingsContainer>
+      <NovelReaderContainer>
+        <h1>{novel.title}</h1>
+        <h5>{novel.subtitle}</h5>
+        <NovelBodyContainer
+          css={{
+            fontSize: `${fontSize}px`,
+          }}
+          dangerouslySetInnerHTML={{ __html: novel.body }}
+        />
+      </NovelReaderContainer>
+    </>
   )
 }
 
