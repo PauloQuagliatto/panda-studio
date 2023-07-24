@@ -6,6 +6,7 @@ export type Novel = {
   arch: string
   body: string
   chapter: number
-  createdAt: string
+  createdAt: string | null
+  updatedAt: string | null
   volume: number
 }
