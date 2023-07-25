@@ -37,19 +37,23 @@ export function formatNovel(novelItemsSnapshot: any[]) {
               title: curr.title,
               name: curr.name
             })
-          } else {
-            accCopy[i].archs.push({
-              arch: curr.arch,
-              chapters: [{
-                chapter: curr.chapter,
-                id: curr.id,
-                createdAt: curr.createdAt,
-                updatedAt: curr.updatedAt,
-                title: curr.title,
-                name: curr.name
-              }]
-            })
+            inserted = true
+            break
           }
+        }
+        if (!inserted) {
+          accCopy[i].archs.push({
+            arch: curr.arch,
+            chapters: [{
+              chapter: curr.chapter,
+              id: curr.id,
+              createdAt: curr.createdAt,
+              updatedAt: curr.updatedAt,
+              title: curr.title,
+              name: curr.name
+            }]
+          })
+          inserted = true
         }
       }
     }
@@ -57,7 +61,7 @@ export function formatNovel(novelItemsSnapshot: any[]) {
     if (inserted)
       return [...accCopy]
 
-    return [...acc, {
+    return [...accCopy, {
       volume: curr.volume,
       archs: [
         {
